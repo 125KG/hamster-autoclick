@@ -56,7 +56,7 @@ sub hamster_autoclick
     #
     if (-e $adb_125KG){
        print "<Press 1 to continue>\n";
-       my $input_125KG = <STDIN>;
+       $input_125KG = <STDIN>;
        chomp ($input_125KG);
 
        while ($input_125KG eq 1){
