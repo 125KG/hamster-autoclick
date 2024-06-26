@@ -2,6 +2,7 @@
 Autoclick for web3 game hamster kombat
 
 1 - Download the Perl language interpreter (https://www.perl.org/).
+
 2 - Download the ADB version for your system (https://developer.android.com/tools/releases/platform-tools?hl=en).
 3 - NOTE: If you are on Windows, extract the folder to the directory C:\
 4 - Enable developer mode on your smartphone.
