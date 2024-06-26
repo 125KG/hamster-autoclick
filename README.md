@@ -1,4 +1,5 @@
 # hamster-autoclick
+# BASED ON REDMI 13C RESOLUTION, MANUAL ADJUSTMENTS MAY BE REQUIRED.
 Autoclick for web3 game hamster kombat
 
 1 - Download the Perl language interpreter (https://www.perl.org/).
