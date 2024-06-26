@@ -8,7 +8,7 @@ Autoclick for web3 game hamster kombat
 
 3 - NOTE: If you are on Windows, extract the folder to the directory C:\
 
-4 - Enable developer mode on your smartphone.
+4 - Enable developer mode on your smartphone and enable USB debugging.
 
 5 - Connect your phone via USB cable to the computer.
 
