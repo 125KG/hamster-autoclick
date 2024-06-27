@@ -32,7 +32,7 @@ sub banner
    Coded by: 125KG CEO of the Sybilla Group Web3 Services (@Tenorio126KG)
    Use this Referral:https://t.me/hamster_komBat_bot/start?startapp=kentId5751837163
 
-   ** This cannot be sold, Isto não pode ser vendido, Это нельзя продать, 这个不能卖 **
+   ** This cannot be sold | Isto não pode ser vendido | Это нельзя продать | 这个不能卖 **
    ' . $/ x 2;
 
    return 1;
