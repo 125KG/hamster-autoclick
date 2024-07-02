@@ -1,3 +1,4 @@
+#!/usr/bin/perl
 # GPL License v3
 #
 # This program is free software: you can redistribute it and/or modify
@@ -13,61 +14,68 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#!perl
-#coded by 125KG(Telegram => @Tenorio126KG)
 use strict;
 
-#Variables
+# Variables
 my ($os_125KG, $adb_125KG, $input_125KG) = (undef, undef, undef);
-#X and Y coordinates vary depending on the size of your cell phone screen.
-my %coords_125KG = (X => '373', Y => '1073'); # 373 1073 
 
-sub banner
-{
-   print '
+# Constants
+use constant {
+    X_COORD => '373',
+    Y_COORD => '1073'
+};
+
+sub banner {
+    print <<'BANNER';
    +-+-+-+-+-+-+-+ +-+-+-+-+-+
    |S|Y|B|I|L|L|A| |G|R|O|U|P|
    +-+-+-+-+-+-+-+ +-+-+-+-+-+
  
    Coded by: 125KG CEO of the Sybilla Group Web3 Services (@Tenorio126KG)
-   Use this Referral:https://t.me/hamster_komBat_bot/start?startapp=kentId5751837163
+   Use this Referral: https://t.me/hamster_komBat_bot/start?startapp=kentId5751837163
 
-   ** This cannot be sold | Isto não pode ser vendido | Это нельзя продать | 这个不能卖 **
-   ' . $/ x 2;
-
+   ** This cannot be sold | Isto não pode ser vendido **
+   
+BANNER
    return 1;
 }
 
-sub cls_screen_identifies_sys
-{
-    # Identifying the operating system clears the screen.
-    die 'APPLE user not here. Bye noob' if $^O eq 'darwin';
+sub cls_screen_identifies_sys {
+    # Identify operating system and clear the screen
+    die 'APPLE users not supported. Exiting.' if $^O eq 'darwin';
     $os_125KG = 1 if $^O eq 'linux'; system 'clear';
     $os_125KG = 2 if $^O eq 'MSWin32'; system 'cls';
-    #
+    
     return 1;
 }
 
-sub hamster_autoclick
-{
-    #If you are running on Linux, the default PATH is /usr/bin/adb
+sub hamster_autoclick {
+    # Determine adb path based on operating system
     $adb_125KG = "/usr/bin/adb" if $os_125KG eq 1;
     $adb_125KG = "C:\\platform-tools\\adb.exe" if $os_125KG eq 2;
-    #
-    if (-e $adb_125KG){
-       print "<Press 1 to continue>\n";
-       $input_125KG = <STDIN>;
-       chomp ($input_125KG);
+    
+    if (-e $adb_125KG) {
+        print "<Press 1 to continue>\n";
+        $input_125KG = <STDIN>;
+        chomp($input_125KG);
 
-       while ($input_125KG eq 1){
-          `$adb_125KG shell input tap $coords_125KG{X} $coords_125KG{Y}`;
-          print "X:$coords_125KG{X} Y:$coords_125KG{Y}" . $/;
-       }
+        while ($input_125KG eq 1) {
+            my ($input_count, $seconds_count) = (0, 0);
+
+            while ($input_count < 635) { # 1100
+                `$adb_125KG shell input tap @{[X_COORD]} @{[Y_COORD]}`;
+                print "Click $input_count | coords @{[X_COORD]} @{[Y_COORD]}" . $/;
+                $input_count++;
+            }
+
+            do {
+                print "Counting... $seconds_count\n";
+                sleep 1;
+            } while ($seconds_count++ < 2170); 
+        }
     }
 }
 
-if (cls_screen_identifies_sys()){
-   if (banner()){
-      hamster_autoclick();   
-   }
+if (cls_screen_identifies_sys() && banner()) {
+    hamster_autoclick();   
 }
