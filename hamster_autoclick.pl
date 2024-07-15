@@ -62,16 +62,16 @@ sub hamster_autoclick {
         while ($input_125KG eq 1) {
             my ($input_count, $seconds_count) = (0, 0);
 
-            while ($input_count < 635) { # 1100
+            while (1) {
                 `$adb_125KG shell input tap @{[X_COORD]} @{[Y_COORD]}`;
                 print "Click $input_count | coords @{[X_COORD]} @{[Y_COORD]}" . $/;
                 $input_count++;
             }
 
-            do {
-                print "Counting... $seconds_count\n";
-                sleep 1;
-            } while ($seconds_count++ < 2170); 
+            #do {
+            #    print "Counting... $seconds_count\n";
+            #    sleep 1;
+            #} while ($seconds_count++ < 2170); 
         }
     }
 }
